@@ -3,7 +3,7 @@
     --notify-blue: #8EDAFC;
     --text-mesage-color: #A08F8B;
 }
-
+/* //UTILS */
 .bg-cream{
     background-color: var(--bg-cream);
 }
@@ -14,9 +14,11 @@
 .w-40{
     width: 40%;
 }
+
+/* ? GEENRICS */
 body{
     height: 100vh;
-    background-image: linear-gradient(#009688 15% ,#fff 15%);
+    background-image: linear-gradient(#009688 15% ,#D8DBD5 15%);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -28,17 +30,22 @@ ul{
 section{
     
     height: 95vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
+
 /* //altezza barra utente e header area messaggistica  */
 .height-1{
     height: 70px;
 }
 
+
+/* // LEFT SECTION OF CONTACTS  */
+/* USER IMAGE */
 .contact-profile-img{
     border-radius: 50%;
     height: 55px;
 }
+/* MOTIFICATION */
 .notify-section{
    
     height: 80px;
@@ -53,11 +60,27 @@ section{
 .notify-section h3, .notify-section p{
     font-size: 15px;
 }
-
+/* SEARCHING AREA */
+.search-area{
+    background-color: #fafafa;
+}
 .search-area input{
     margin: 5px  auto;
     width: 95%;
 }
+/* CONTACTS AREA  */
+.contacts-list{
+    margin-bottom: 0;
+    height: 722px;
+    overflow-y: scroll;
+}
 .chat-border{
     border: 0.5px solid #f1f1f1;
+}
+
+
+/* ? SECTIOM RIGHT  */
+/* HEADER OF SECTION  */
+.mesage-icon-menu{
+    width: 10%;
 }

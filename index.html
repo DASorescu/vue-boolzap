@@ -26,19 +26,23 @@
     <div id="root" class="h-100">
         <div class="container h-100 d-flex align-items-center">
             <div class="row w-100">
+                <!-- LEFT SECTION OF THE WEBBAPP -->
                 <div class="col-4 pe-0">
                     <section id="contacts" class="">
+                        <!-- USER INFO MARCKUP -->
                         <div class="user-profile bg-cream height-1 d-flex justify-content-around align-items-center">
                             <div class="user-info w-40 d-flex align-items-center">
                                 <img src="img/avatar_io.jpg" alt="io" class="contact-profile-img">
                                 <h4 class="contact-name fw-normal">Annalisa</h3>
                             </div>
+                            <!-- ICONS OF USER INFO  -->
                             <div class="user-menu w-30 d-flex justify-content-around align-items-center">
                                 <i class="fa-solid fa-circle-notch fs-4"></i>
                                 <i class="fa-solid fa-message fs-4"></i>
                                 <i class="fa-solid fa-ellipsis-vertical fs-4"></i>
                             </div>
                         </div>
+                        <!-- NOTIFICATION TOGGLE-SECTION -->
                         <div class="notify-section d-flex align-items-center">
                             <div class="rounded-circle bg-white bell d-flex align-items-center justify-content-center mx-1">
                                 <i class="fa-solid fa-bell-slash fa-2x"></i>
@@ -48,11 +52,13 @@
                                 <p class="mb-0">Attiva notifiche desktop</p>
                             </div>
                         </div>
+                        <!-- SEARCHING IMPUT AREA  -->
                         <div class="search-area">
                             <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                             <input type="text" class="text-area" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                        <ul class="contacts-list ps-0">
+                        <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OPBJECTS ARRAY IN JAVASCRIPT  -->
+                        <ul class="contacts-list ps-0 bg-white">
                             <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border">
                                 <img src="img/avatar_1.jpg" :alt="contacts[i].name"class="contact-profile-img">
                                 <h4 class="contact-name ms-2 fw-normalfs-4">{{contacts[i].name}}</h3>
@@ -60,18 +66,23 @@
                         </ul>
                     </section>
                 </div>
+                <!-- RIGHT SIDE OF THE WEBBAPP -->
                 <div class="col-8 ps-0">
                     <section id="mesages" class="">
-                        <header class="bg-cream height-1">
-                            <div class="contact-info">
-                                <img src="" alt="" class="contact-profile-img">
-                                <h3 class="contact-name"></h3>
-                                <p class="last-access"></p>
+                        <!-- SECTION HEADER WITH CHAT CONTACT AND INFOS -->
+                        <header class="bg-cream height-1 d-flex justify-content-between align-items-center">
+                            <div class="contact-info d-flex align-items-center">
+                                <img src="img/avatar_io.jpg" alt="io" class="contact-profile-img">
+                                <div>
+                                    <h4 class="contact-name fw-normal">Annalisa</h3>
+                                    <p class="last-access">Ultimo accesso </p>
+                                </div>
                             </div>
-                            <div class="mesage-icon-menu">
-                                <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-                                <i class="fa-solid fa-paperclip fa-2x"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                            <!-- ICONS MENU OF THE CHAT -->
+                            <div class="mesage-icon-menu d-flex justify-content-around me-3">
+                                <i class="fa-solid fa-magnifying-glass fs-4"></i>
+                                <i class="fa-solid fa-paperclip fs-4"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fs-4"></i>
                             </div>
                         </header>
                         <main>
@@ -93,5 +104,7 @@
 </body>
 </html>
 
+
+                            
 
                             
