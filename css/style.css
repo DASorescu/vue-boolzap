@@ -1,4 +1,21 @@
+:root{
+    --bg-cream : #EAEAEA;
+}
+
+
 body{
-    
+    height: 100vh;
+    background-image: linear-gradient(#009688 15% ,#fff 15%);
     font-family: 'Roboto', sans-serif;
 }
+
+ul{
+    list-style-type: none;
+}
+
+section{
+    
+    height: 95vh;
+    border: 1px solid black;
+}
+
