@@ -27,38 +27,51 @@
         <div class="container h-100 d-flex align-items-center">
             <div class="row w-100">
                 <div class="col-4 pe-0">
-                    <section id="contacts" class="my-1 ">
-                        <div class="user-profile ">
-                            <div class="user-info">
-                                <img src="" alt="" class="contact-profile-img">
-                                <h3 class="contact-name"></h3>
+                    <section id="contacts" class="">
+                        <div class="user-profile bg-cream height-1 d-flex justify-content-around align-items-center">
+                            <div class="user-info w-40 d-flex align-items-center">
+                                <img src="img/avatar_io.jpg" alt="io" class="contact-profile-img">
+                                <h4 class="contact-name fw-normal">Annalisa</h3>
                             </div>
-                            <div class="user-menu">
-            
+                            <div class="user-menu w-30 d-flex justify-content-around align-items-center">
+                                <i class="fa-solid fa-circle-notch fs-4"></i>
+                                <i class="fa-solid fa-message fs-4"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fs-4"></i>
                             </div>
                         </div>
-                        <div class="notify-section"></div>
-                        <div class="search-area"></div>
-                        <ul class="contacts-list">
-                            <li class="contact-info">
-                                <img src="" alt="" class="contact-profile-img">
-                                <h3 class="contact-name"></h3>
+                        <div class="notify-section d-flex align-items-center">
+                            <div class="rounded-circle bg-white bell d-flex align-items-center justify-content-center mx-1">
+                                <i class="fa-solid fa-bell-slash fa-2x"></i>
+                            </div>
+                            <div class="ms-1">
+                                <h3>Ricevi notifiche di altri messaggi</h3>
+                                <p class="mb-0">Attiva notifiche desktop</p>
+                            </div>
+                        </div>
+                        <div class="search-area">
+                            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                            <input type="text" class="text-area" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                        <ul class="contacts-list ps-0">
+                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border">
+                                <img src="img/avatar_1.jpg" :alt="contacts[i].name"class="contact-profile-img">
+                                <h4 class="contact-name ms-2 fw-normalfs-4">{{contacts[i].name}}</h3>
                             </li>
                         </ul>
                     </section>
                 </div>
                 <div class="col-8 ps-0">
-                    <section id="mesages" class="my-1 ">
-                        <header>
+                    <section id="mesages" class="">
+                        <header class="bg-cream height-1">
                             <div class="contact-info">
                                 <img src="" alt="" class="contact-profile-img">
                                 <h3 class="contact-name"></h3>
                                 <p class="last-access"></p>
                             </div>
                             <div class="mesage-icon-menu">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <i class="fa-solid fa-paperclip"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                                <i class="fa-solid fa-paperclip fa-2x"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
                             </div>
                         </header>
                         <main>
@@ -80,3 +93,5 @@
 </body>
 </html>
 
+
+                            

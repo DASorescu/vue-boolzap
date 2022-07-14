@@ -1,8 +1,19 @@
 :root{
     --bg-cream : #EAEAEA;
+    --notify-blue: #8EDAFC;
+    --text-mesage-color: #A08F8B;
 }
 
+.bg-cream{
+    background-color: var(--bg-cream);
+}
 
+.w-30{
+    width: 30%;
+}
+.w-40{
+    width: 40%;
+}
 body{
     height: 100vh;
     background-image: linear-gradient(#009688 15% ,#fff 15%);
@@ -11,6 +22,7 @@ body{
 
 ul{
     list-style-type: none;
+    padding-left: 0%;
 }
 
 section{
@@ -18,4 +30,34 @@ section{
     height: 95vh;
     border: 1px solid black;
 }
+/* //altezza barra utente e header area messaggistica  */
+.height-1{
+    height: 70px;
+}
 
+.contact-profile-img{
+    border-radius: 50%;
+    height: 55px;
+}
+.notify-section{
+   
+    height: 80px;
+    background-color: var(--notify-blue);
+}
+
+.bell{
+    color: var(--notify-blue);
+    height: 60px;
+    width: 60px;
+}
+.notify-section h3, .notify-section p{
+    font-size: 15px;
+}
+
+.search-area input{
+    margin: 5px  auto;
+    width: 95%;
+}
+.chat-border{
+    border: 0.5px solid #f1f1f1;
+}
