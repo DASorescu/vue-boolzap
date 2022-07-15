@@ -44,7 +44,10 @@ section{
 .icon{
     color:  darkgray;
 }
-
+.icon:hover{
+    cursor: pointer;
+    color:rgb(88, 84, 84)
+}
 /* //altezza barra utente e header area messaggistica  */
 .height-1{
     height: 70px;
@@ -126,7 +129,7 @@ footer{
     height: 80px;
 }
 
-footer .icon{
+.emojy , .vocal-mesage{
     display: flex;
     justify-content: center;
     align-items:center;
