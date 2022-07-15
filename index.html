@@ -57,9 +57,9 @@
                             <i class="fa-solid fa-magnifying-glass search-icon icon"></i>
                             <input type="text" class="text-area" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                        <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OPBJECTS ARRAY IN JAVASCRIPT  -->
+                        <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OBJECTS ARRAY IN JAVASCRIPT  -->
                         <ul class="contacts-list ps-0 bg-white">
-                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border">
+                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border" @click="toggleVisibility(i)">
                                 <img :src="buildSrc(object.avatar)" :alt="contacts[i].name"class="contact-profile-img">
                                 <h4 class="contact-name fw-normalfs-4 mx-2">{{contacts[i].name}}</h3>
                             </li>
@@ -72,9 +72,9 @@
                         <!-- SECTION HEADER WITH CHAT CONTACT AND INFOS -->
                         <header class="bg-cream height-1 d-flex justify-content-between align-items-center">
                             <div class="contact-info d-flex align-items-center">
-                                <img :src="buildSrc(user.avatar)" :alt="user.name" class="contact-profile-img">
+                                <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="contacts[currentIndex].name" class="contact-profile-img">
                                 <div>
-                                    <h4 class="contact-name fw-normal my-0 mx-2">{{user.name}}</h3>
+                                    <h4 class="contact-name fw-normal mx-2">{{contacts[currentIndex].name}}</h3>
                                     <p class="last-access my-0 mx-2 text-lgray">Ultimo accesso: </p>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                         </header>
                         <main class="mesaging-area p-4">
                             <template v-for="(contact) in contacts">
-                                <div v-for="(message , i) in contact.messages" class="mesage-container" :class="contact.messages[i].status">
+                                <div v-if="contact.visible" v-for="(message , i) in contact.messages" class="mesage-container" :class="contact.messages[i].status">
                                     <div class="mesage" :class="contact.messages[i].status">{{contact.messages[i].text}}
                                         <!-- <span class="w-30">10/08/22</span> -->
                                     </div>
