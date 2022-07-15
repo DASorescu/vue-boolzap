@@ -100,6 +100,7 @@ const app = new Vue({
       toggleVisibility(i) {
         this.contacts[i].visible = !this.contacts[i].visible
         this.currentIndex=i;
+        
       },
     },
 });
