@@ -59,7 +59,7 @@
                         </div>
                         <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OBJECTS ARRAY IN JAVASCRIPT  -->
                         <ul class="contacts-list ps-0 bg-white">
-                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border" @click="toggleVisibility(i)">
+                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border" @click="toggleVisibility(i)" :class="{'active':object.visible}">
                                 <img :src="buildSrc(object.avatar)" :alt="contacts[i].name"class="contact-profile-img">
                                 <h4 class="contact-name fw-normalfs-4 mx-2">{{contacts[i].name}}</h3>
                             </li>

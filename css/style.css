@@ -105,6 +105,9 @@ section{
 .chat-border{
     border: 0.5px solid #f1f1f1;
 }
+.contacts-list li.active{
+    background-color: #dedede;
+}
 .contacts-list li:hover{
     cursor: pointer;
     background-color: #dedede;
