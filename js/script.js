@@ -5,9 +5,9 @@ Vue.config.devtools = true;
 const app = new Vue({
     el : '#root',
     data : {
-        avatarPhoto:'',
+        // avatarPhoto:'',
         user: {
-          name: 'Nome Utente',
+          name: 'Annalisa',
           avatar: '_io'
         },
         contacts: [
@@ -39,6 +39,9 @@ const app = new Vue({
         }
     },
     methods:{
-
-    }
+      buildSrc:avatar => `img/avatar${avatar}.jpg`,
+      
+    },
 });
+
+// TODO : Fare una computed che restituisca un array di stringhe conmposte da img/avatar+contacts.avatar+.jpg!!

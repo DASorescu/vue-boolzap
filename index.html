@@ -32,36 +32,36 @@
                         <!-- USER INFO MARCKUP -->
                         <div class="user-profile bg-cream height-1 d-flex justify-content-around align-items-center">
                             <div class="user-info w-40 d-flex align-items-center">
-                                <img src="img/avatar_io.jpg" alt="io" class="contact-profile-img">
-                                <h4 class="contact-name fw-normal">Annalisa</h3>
+                                <img :src="buildSrc(user.avatar)" :alt="user.name" class="contact-profile-img">
+                                <h4 class="contact-name fw-normal mx-2">{{user.name}}</h3>
                             </div>
                             <!-- ICONS OF USER INFO  -->
-                            <div class="user-menu w-30 d-flex justify-content-around align-items-center">
-                                <i class="fa-solid fa-circle-notch fs-4"></i>
-                                <i class="fa-solid fa-message fs-4"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fs-4"></i>
+                            <div class="user-menu w-30 d-flex justify-content-around align-items-center text-lgray">
+                                <i class="fa-solid fa-circle-notch fs-4 icon"></i>
+                                <i class="fa-solid fa-message fs-4 icon"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fs-4 icon"></i>
                             </div>
                         </div>
                         <!-- NOTIFICATION TOGGLE-SECTION -->
                         <div class="notify-section d-flex align-items-center">
                             <div class="rounded-circle bg-white bell d-flex align-items-center justify-content-center mx-1">
-                                <i class="fa-solid fa-bell-slash fa-2x"></i>
+                                <i class="fa-solid fa-bell-slash fa-2x icon"></i>
                             </div>
                             <div class="ms-1">
                                 <h3>Ricevi notifiche di altri messaggi</h3>
-                                <p class="mb-0">Attiva notifiche desktop</p>
+                                <p class="mb-0 underlined ">Attiva notifiche desktop</p>
                             </div>
                         </div>
                         <!-- SEARCHING IMPUT AREA  -->
                         <div class="search-area">
-                            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                            <i class="fa-solid fa-magnifying-glass search-icon icon"></i>
                             <input type="text" class="text-area" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OPBJECTS ARRAY IN JAVASCRIPT  -->
                         <ul class="contacts-list ps-0 bg-white">
                             <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border">
-                                <img src="img/avatar_1.jpg" :alt="contacts[i].name"class="contact-profile-img">
-                                <h4 class="contact-name ms-2 fw-normalfs-4">{{contacts[i].name}}</h3>
+                                <img :src="buildSrc(user.avatar)" :alt="contacts[i].name"class="contact-profile-img">
+                                <h4 class="contact-name fw-normalfs-4 mx-2">{{contacts[i].name}}</h3>
                             </li>
                         </ul>
                     </section>
@@ -72,28 +72,32 @@
                         <!-- SECTION HEADER WITH CHAT CONTACT AND INFOS -->
                         <header class="bg-cream height-1 d-flex justify-content-between align-items-center">
                             <div class="contact-info d-flex align-items-center">
-                                <img src="img/avatar_io.jpg" alt="io" class="contact-profile-img">
+                                <img :src="buildSrc(user.avatar)" :alt="user.name" class="contact-profile-img">
                                 <div>
-                                    <h4 class="contact-name fw-normal">Annalisa</h3>
-                                    <p class="last-access">Ultimo accesso </p>
+                                    <h4 class="contact-name fw-normal my-0 mx-2">{{user.name}}</h3>
+                                    <p class="last-access my-0 mx-2 text-lgray">Ultimo accesso: </p>
                                 </div>
                             </div>
                             <!-- ICONS MENU OF THE CHAT -->
-                            <div class="mesage-icon-menu d-flex justify-content-around me-3">
-                                <i class="fa-solid fa-magnifying-glass fs-4"></i>
-                                <i class="fa-solid fa-paperclip fs-4"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fs-4"></i>
+                            <div class="mesage-icon-menu d-flex justify-content-around me-3 text-lgray">
+                                <i class="fa-solid fa-magnifying-glass fs-4 icon"></i>
+                                <i class="fa-solid fa-paperclip fs-4 icon"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fs-4 icon"></i>
                             </div>
                         </header>
-                        <main>
-                            <div class="mesaging-area"></div>
+                        <main class="mesaging-area">
+                            
                         </main>
-                        <footer>
-                            <div class="icon-menu"></div>
-                            <div class="type-mesage-bar">
-                                <input type="text" class="text-area">
+                        <footer class="d-flex bg-cream">
+                            <div class="icon">
+                                <i class="fa-regular fa-face-smile fa-2x icon"></i>
                             </div>
-                            <div class="vocal-mesage"></div>
+                            <div class="type-mesage-bar flex-grow-1 ">
+                                <input type="text" class="text-area w-100">
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-microphone fa-2x icon"></i>
+                            </div>
                         </footer>
                     </section>
                 </div>
