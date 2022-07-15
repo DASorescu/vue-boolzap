@@ -15,6 +15,9 @@
 .w-40{
     width: 40%;
 }
+.text-grey{
+    color: grey;
+}
 .text-lgray{
     color: var(--text-mesage-color);
 }
@@ -92,6 +95,7 @@ section{
     margin: 5px  auto;
     width: 95%;
 }
+
 /* CONTACTS AREA  */
 .contacts-list{
     margin-bottom: 0;
@@ -111,13 +115,47 @@ section{
 .mesage-icon-menu{
     width: 10%;
 }
-
+/* //mesaging area */
 .mesaging-area{
     height: calc(100% - 150px);
     background-image: url(../img/mine.jpg);
 
     overflow-y: scroll;
 }
+
+.mesage-container{
+    
+    display: flex;
+    width: 100%;
+    
+}
+
+.mesage-container .mesage{
+    border-radius: 5px;
+    max-width: 75%;
+    min-height: 50px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mesage-container.sent{
+    
+    justify-content: flex-end;
+}
+.mesage-container.received{
+    
+    justify-content: flex-start;
+}
+
+.mesage.sent{
+    background-color: #D5F9BA;
+}
+.mesage.recived{
+    background-color: #fff;
+}
+
 
 .type-mesage-bar input{
     height: 50px;
