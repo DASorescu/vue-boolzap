@@ -125,6 +125,7 @@ section{
 
 .mesage-container{
     
+    padding: 0.5rem;
     display: flex;
     width: 100%;
     
@@ -152,7 +153,7 @@ section{
 .mesage.sent{
     background-color: #D5F9BA;
 }
-.mesage.recived{
+.mesage.received{
     background-color: #fff;
 }
 

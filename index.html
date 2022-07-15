@@ -86,11 +86,13 @@
                             </div>
                         </header>
                         <main class="mesaging-area p-4">
-                            <div v-for="(contact , i) in contacts" class="mesage-container" :class="contacts.messages[i].status">
-                                <div class="mesage" :class="contacts.messages[i].status">{{contacts.messages[i].text}}
-                                    <!-- <span class="w-30">10/08/22</span> -->
+                            <template v-for="(contact) in contacts">
+                                <div v-for="(message , i) in contact.messages" class="mesage-container" :class="contact.messages[i].status">
+                                    <div class="mesage" :class="contact.messages[i].status">{{contact.messages[i].text}}
+                                        <!-- <span class="w-30">10/08/22</span> -->
+                                    </div>
                                 </div>
-                            </div>
+                            </template>
                         </main>
                         <footer class="d-flex bg-cream">
                             <div class="emojy">
@@ -116,3 +118,4 @@
                             
 
                             
+
