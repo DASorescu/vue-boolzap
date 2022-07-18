@@ -21,6 +21,12 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' 
     integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' 
     crossorigin='anonymous'/>
+
+    <!-- DayJs -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/plugin/customParseFormat.js"></script>
+    
 </head>
 <body>
     <div id="root" class="h-100">
@@ -59,7 +65,7 @@
                         </div>
                         <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OBJECTS ARRAY IN JAVASCRIPT  -->
                         <ul class="contacts-list ps-0 bg-white">
-                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border" @click="toggleVisibility(i)" :class="{'active':currentIndex===contacts.index}">
+                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border" @click="toggleVisibility(i)" :class="{'active': i === currentIndex}">
                                 <img :src="buildSrc(object.avatar)" :alt="contacts[i].name"class="contact-profile-img">
                                 <h4 class="contact-name fw-normalfs-4 mx-2">{{contacts[i].name}}</h3>
                             </li>
@@ -87,19 +93,20 @@
                         </header>
                         <main class="mesaging-area p-4">
                             
-                                <div  v-for="(message , i) in contacts[currentIndex].messages" class="mesage-container" :class="message[i].status">
-                                    <div class="mesage" :class="message[i].status">{{message[i].text}}
-                                        <!-- <span class="w-30">10/08/22</span> -->
+                                <div  v-for="(message , i) in contacts[currentIndex].messages" class="mesage-container" :class="contacts[currentIndex].messages[i].status">
+                                    <div class="mesage" :class="contacts[currentIndex].messages[i].status">{{contacts[currentIndex].messages[i].text}}
+                                        <span class="date-info">{{contacts[currentIndex].messages[i].date}}</span>
                                     </div>
                                 </div>
                             
                         </main>
+                        <!-- chat footer -->
                         <footer class="d-flex bg-cream">
                             <div class="emojy">
                                 <i class="fa-regular fa-face-smile fa-2x icon"></i>
                             </div>
                             <div class="type-mesage-bar flex-grow-1 ">
-                                <input type="text" class="text-area w-100">
+                                <input type="text" class="text-area w-100" v-model.trim="newText" @keyup.enter="sendMessage">
                             </div>
                             <div class="vocal-mesage">
                                 <i class="fa-solid fa-microphone fa-2x icon"></i>

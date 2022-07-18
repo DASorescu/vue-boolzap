@@ -5,17 +5,17 @@ Vue.config.devtools = true;
 const app = new Vue({
     el : '#root',
     data : {
+      currentIndex: 0,
+      newText:'',
       user: {
         name: 'Annalisa',
         avatar: '_io'
       },
-      currentIndex: 0,
       contacts: [
         {
           name: 'Michele',
           avatar: '_1',
           visible: true,
-          index: 0,
           messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Hai portato a spasso il cane?',
@@ -37,7 +37,6 @@ const app = new Vue({
           name: 'Fabio',
           avatar: '_2',
           visible: false,
-          index: 1,
           messages: [{
             date: '20/03/2020 16:30:00',
             text: 'Ciao come stai?',
@@ -59,7 +58,6 @@ const app = new Vue({
           name: 'Samuele',
           avatar: '_3',
           visible: false,
-          index: 2,
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'La Marianna va in campagna',
@@ -82,7 +80,6 @@ const app = new Vue({
           name: 'Luisa',
           avatar: '_4',
           visible: false,
-          index: 3,
           messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -105,6 +102,28 @@ const app = new Vue({
         this.contacts[i].visible = !this.contacts[i].visible
         this.currentIndex=i;
         
+      },
+      addMessage(text,status){
+        const newMessage = {
+          text : text,
+          status : status,
+          date : dayjs().format('DD/MM/YYYY HH:mm:ss'),
+        }
+        this.contacts[this.currentIndex].messages.push(newMessage);
+      }, 
+
+      sendMessage(){
+        if(!this.newText) return ;
+
+        this.addMessage(this.newText, 'sent' );
+        
+        this.newText = '';
+
+        this.autoReply();
+      },
+
+      autoReply(){
+        setTimeout(()=> this.addMessage('ok', 'received'), 2000);
       },
     },
 });

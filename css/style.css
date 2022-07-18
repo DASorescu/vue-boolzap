@@ -24,6 +24,13 @@
 .underlined{
     text-decoration: underline;
 }
+.date-info{
+    font-size: 12px;
+    color: gray;
+    font-style: italic;
+    width: 100%;
+    
+}
 
 
 /* ? GEENRICS */
@@ -63,6 +70,7 @@ section{
     border-radius: 50%;
     height: 55px;
 }
+
 /* MOTIFICATION */
 .notify-section{
    
@@ -78,6 +86,7 @@ section{
 .notify-section h3, .notify-section p{
     font-size: 15px;
 }
+
 /* SEARCHING AREA */
 .search-area{
     position: relative;
@@ -118,6 +127,7 @@ section{
 .mesage-icon-menu{
     width: 10%;
 }
+
 /* //mesaging area */
 .mesaging-area{
     height: calc(100% - 150px);
@@ -155,11 +165,19 @@ section{
 
 .mesage.sent{
     background-color: #D5F9BA;
+    
 }
 .mesage.received{
     background-color: #fff;
+    
 }
 
+.received .date-info{
+    text-align: start;
+}
+.sent .date-info{
+    text-align: end;
+}
 
 .type-mesage-bar input{
     height: 50px;
