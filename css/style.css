@@ -152,24 +152,25 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    
 }
 .mesage-container.sent{
     
     justify-content: flex-end;
+    
 }
 .mesage-container.received{
     
     justify-content: flex-start;
+    
 }
 
 .mesage.sent{
     background-color: #D5F9BA;
-    
 }
 .mesage.received{
     background-color: #fff;
-    
+    align-items: flex-start;
 }
 
 .received .date-info{

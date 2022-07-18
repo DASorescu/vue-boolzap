@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/plugin/customParseFormat.js"></script>
-    
+
 </head>
 <body>
     <div id="root" class="h-100">
@@ -41,6 +41,7 @@
                                 <img :src="buildSrc(user.avatar)" :alt="user.name" class="contact-profile-img">
                                 <h4 class="contact-name fw-normal mx-2">{{user.name}}</h3>
                             </div>
+
                             <!-- ICONS OF USER INFO  -->
                             <div class="user-menu w-30 d-flex justify-content-around align-items-center text-lgray">
                                 <i class="fa-solid fa-circle-notch fs-4 icon"></i>
@@ -48,6 +49,7 @@
                                 <i class="fa-solid fa-ellipsis-vertical fs-4 icon"></i>
                             </div>
                         </div>
+
                         <!-- NOTIFICATION TOGGLE-SECTION -->
                         <div class="notify-section d-flex align-items-center">
                             <div class="rounded-circle bg-white bell d-flex align-items-center justify-content-center mx-1">
@@ -58,20 +60,23 @@
                                 <p class="mb-0 underlined text-grey">Attiva notifiche desktop</p>
                             </div>
                         </div>
+
                         <!-- SEARCHING IMPUT AREA  -->
                         <div class="search-area">
                             <i class="fa-solid fa-magnifying-glass search-icon icon"></i>
-                            <input type="text" class="text-area" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" class="text-area" placeholder="Cerca o inizia una nuova chat" v-model.trim="searchText">
                         </div>
+
                         <!--GENERATION OF THE CONTACTS UNORDERED LIST USING THE DIRECTIVE V-FOR BASED ON THE OBJECTS ARRAY IN JAVASCRIPT  -->
                         <ul class="contacts-list ps-0 bg-white">
-                            <li v-for="(object , i) in contacts" class="contact-info d-flex py-3 ps-3 chat-border" @click="toggleVisibility(i)" :class="{'active': i === currentIndex}">
+                            <li v-for="(object , i) in filteredContacts" class="contact-info d-flex py-3 ps-3 chat-border" v-if="object.visible" @click="toggleVisibility(i)" :class="{'active': i === currentIndex}">
                                 <img :src="buildSrc(object.avatar)" :alt="contacts[i].name"class="contact-profile-img">
                                 <h4 class="contact-name fw-normalfs-4 mx-2">{{contacts[i].name}}</h3>
                             </li>
                         </ul>
                     </section>
                 </div>
+
                 <!-- RIGHT SIDE OF THE WEBBAPP *************************************************************************************************-->
                 <div class="col-8 ps-0">
                     <section id="mesages" class="">
@@ -81,7 +86,7 @@
                                 <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="contacts[currentIndex].name" class="contact-profile-img">
                                 <div>
                                     <h4 class="contact-name fw-normal mx-2">{{contacts[currentIndex].name}}</h3>
-                                    <p class="last-access my-0 mx-2 text-lgray">Ultimo accesso: </p>
+                                    <p class="last-access my-0 mx-2 text-lgray">Ultimo accesso:</p>
                                 </div>
                             </div>
                             <!-- ICONS MENU OF THE CHAT -->

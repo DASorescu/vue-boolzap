@@ -7,6 +7,7 @@ const app = new Vue({
     data : {
       currentIndex: 0,
       newText:'',
+      searchText:'',
       user: {
         name: 'Annalisa',
         avatar: '_io'
@@ -36,7 +37,7 @@ const app = new Vue({
         {
           name: 'Fabio',
           avatar: '_2',
-          visible: false,
+          visible: true,
           messages: [{
             date: '20/03/2020 16:30:00',
             text: 'Ciao come stai?',
@@ -57,7 +58,7 @@ const app = new Vue({
         {
           name: 'Samuele',
           avatar: '_3',
-          visible: false,
+          visible: true,
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'La Marianna va in campagna',
@@ -79,7 +80,7 @@ const app = new Vue({
         {
           name: 'Luisa',
           avatar: '_4',
-          visible: false,
+          visible: true,
           messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -94,13 +95,24 @@ const app = new Vue({
         },
       ]
     },
+    computed:{
+      filteredContacts(){
+        return this.contacts.map(contact => {
+          contact.visible = contact.name.toLowerCase().includes(this.searchText.toLowerCase());
+          return contact;
+        });
+
+
+      }
+
+    },
+
     methods:{
 
       buildSrc:avatar => `img/avatar${avatar}.jpg`,
 
       toggleVisibility(i) {
-        this.contacts[i].visible = !this.contacts[i].visible
-        this.currentIndex=i;
+        this.currentIndex = i;
         
       },
       addMessage(text,status){
@@ -125,7 +137,21 @@ const app = new Vue({
       autoReply(){
         setTimeout(()=> this.addMessage('ok', 'received'), 2000);
       },
+
+      filterContacts(name){
+        for (contact in this.contacts){
+          
+          contact.name.includes(name);
+        }
+        
+        return this.contact;
+      }
     },
 });
 
-// TODO : Fare una computed che restituisca un array di stringhe conmposte da img/avatar+contacts.avatar+.jpg!!
+// TODO : bonus last message!!
+
+// console.log(lastMessage)
+    // computed:{
+    //   lastMessage: this.contacts[currentIndex].messages[messages.length - 1],
+    // },
