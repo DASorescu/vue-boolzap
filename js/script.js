@@ -78,7 +78,7 @@ const app = new Vue({
           
         },
         {
-          name: 'Luisa',
+          name: 'Luis',
           avatar: '_4',
           visible: true,
           messages: [{
@@ -96,25 +96,31 @@ const app = new Vue({
       ]
     },
     computed:{
+      // a computed wich gives me a filtered array for the search bar in the contacts
       filteredContacts(){
         return this.contacts.map(contact => {
           contact.visible = contact.name.toLowerCase().includes(this.searchText.toLowerCase());
           return contact;
         });
+      },
+      lastAccess(){
+        const messageArray = this.contacts[this.currentIndex].messages;
 
-
-      }
-
+        return  messageArray[messageArray.length-1].date;
+        
+      },
     },
 
-    methods:{
 
+    methods:{
+      // builder for the image search in the html 
       buildSrc:avatar => `img/avatar${avatar}.jpg`,
 
       toggleVisibility(i) {
         this.currentIndex = i;
         
       },
+      // method to add a new message to the conversation 
       addMessage(text,status){
         const newMessage = {
           text : text,
@@ -123,7 +129,7 @@ const app = new Vue({
         }
         this.contacts[this.currentIndex].messages.push(newMessage);
       }, 
-
+      // method that aply add message when i press enter on the input camp on the application 
       sendMessage(){
         if(!this.newText) return ;
 
@@ -133,11 +139,11 @@ const app = new Vue({
 
         this.autoReply();
       },
-
+      // auto reply to messages 
       autoReply(){
         setTimeout(()=> this.addMessage('ok', 'received'), 2000);
       },
-
+      // method that filters the contact to be aplied in the computed above 
       filterContacts(name){
         for (contact in this.contacts){
           
@@ -145,13 +151,18 @@ const app = new Vue({
         }
         
         return this.contact;
-      }
+      },
+      getLastAccess(i){
+        const messageArray = this.contacts[i].messages;
+
+        return  messageArray[messageArray.length-1].date;
+        
+      },
     },
 });
 
+
+
+
 // TODO : bonus last message!!
 
-// console.log(lastMessage)
-    // computed:{
-    //   lastMessage: this.contacts[currentIndex].messages[messages.length - 1],
-    // },
